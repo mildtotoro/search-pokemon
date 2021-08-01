@@ -107,7 +107,7 @@ function Search() {
       ) : (
         called && (
           <div className="p-5 text-gray-400">
-            <h2>Not Found {nameParam}</h2>
+            <h2>Not Found {nameParam} pokemon</h2>
           </div>
         )
       )}
