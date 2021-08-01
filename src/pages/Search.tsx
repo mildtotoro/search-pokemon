@@ -62,8 +62,8 @@ function Search() {
 
   const [searchPokemon, { loading, data, error, called }] =
     useLazyQuery<PokemonDataInterface>(GET_POKEMON);
+
   useEffect(() => {
-    console.log("use effect", nameParam);
     if (nameParam !== "" && nameParam !== null) {
       setName(nameParam);
       searchPokemon({
@@ -73,8 +73,8 @@ function Search() {
   }, [nameParam, searchPokemon]);
 
   const pokemon = data?.pokemon;
-  if (loading) return <div>Loading</div>;
-  if (error) return <div>{error.message}</div>;
+  if (loading) return <div className="p-5 text-gray-400">Loading</div>;
+  if (error) return <div className="p-5 text-red-400">{error.message}</div>;
   return (
     <div className="pt-5">
       <form
@@ -91,6 +91,7 @@ function Search() {
           className="border text-gray-500  text-sm font-light p-2"
           type="text"
           name="name"
+          placeholder="Pekemon Name"
           onChange={(e) => setName(e.target.value)}
           value={name}
         />
@@ -104,7 +105,11 @@ function Search() {
       {pokemon ? (
         <Pokemon pokemon={pokemon}></Pokemon>
       ) : (
-        called && <div>not found</div>
+        called && (
+          <div className="p-5 text-gray-400">
+            <h2>Not Found {nameParam}</h2>
+          </div>
+        )
       )}
     </div>
   );

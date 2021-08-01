@@ -19,14 +19,18 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           data-testid="pokemon-types"
           className=" text-gray-500 font-light text-xs inline pl-3"
         >
-          (
-          {pokemon.types &&
-            pokemon.types.map((item, i) => {
-              // const comma = i < pokemon.types.length - 1 ? ", " : "";
-              // const text = item + comma;
-              return <span key={item}>{item}</span>;
-            })}
-          )
+          <ul className="comma-list">
+            (
+            {pokemon.types &&
+              pokemon.types.map((item, i) => {
+                return (
+                  <li className="inline" key={item}>
+                    {item}
+                  </li>
+                );
+              })}
+            )
+          </ul>
         </h4>
         <div className="mt-5 grid grid-cols-5 gap-x-1 gap-y-2 text-xs text-gray-600">
           <div className="font-extralight">Max HP</div>
@@ -68,14 +72,73 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           <div className="font-extralight">Resistant</div>
           <div className="col-span-4">
             <h5 className="font-light">
-              {pokemon.resistant &&
-                pokemon.resistant.map((item, i) => {
-                  // const comma = i < pokemon.resistant.length - 1 ? ", " : "";
-                  // const text = item + comma;
-                  return <span key={item}>{item}</span>;
-                })}
+              <ul className="comma-list">
+                {pokemon.resistant &&
+                  pokemon.resistant.map((item, i) => {
+                    return (
+                      <li className="inline" key={item}>
+                        {item}
+                      </li>
+                    );
+                  })}
+              </ul>
             </h5>
           </div>
+          {/*  */}
+
+          <div className="font-extralight">Weaknesses</div>
+          <div className="col-span-4">
+            <h5 className="font-light">
+              <ul className="comma-list">
+                {pokemon.weaknesses &&
+                  pokemon.weaknesses.map((item, i) => {
+                    return (
+                      <li className="inline" key={item}>
+                        {item}
+                      </li>
+                    );
+                  })}
+              </ul>
+            </h5>
+          </div>
+
+          {/*  */}
+          <div className="font-extralight">Evolutions</div>
+          <div className="col-span-4">
+            <h5 className="font-light">
+              <ul className="comma-list">
+                {pokemon.evolutions &&
+                  pokemon.evolutions.map((item) => {
+                    const params = new URLSearchParams({ name: item.name });
+                    return (
+                      <li key={item.id} className="inline">
+                        <Link
+                          className="underline"
+                          to={{
+                            search: params.toString(),
+                          }}
+                        >
+                          {item.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+              </ul>
+            </h5>
+          </div>
+          {/*  */}
+          <div className="font-extralight">Evolution Requirements</div>
+          <div className="col-span-4">
+            {pokemon.evolutionRequirements && (
+              <>
+                <h5 className="font-light">
+                  {pokemon.evolutionRequirements.name}{" "}
+                  {pokemon.evolutionRequirements.amount} ea
+                </h5>
+              </>
+            )}
+          </div>
+
           {/*  */}
           <div className="font-extralight">Attacks</div>
           <div className="col-span-4">
@@ -108,53 +171,6 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
               </h5>
             </div>
           </div>
-          {/*  */}
-          <div className="font-extralight">Weaknesses</div>
-          <div className="col-span-4">
-            <h5 className="font-light">
-              {pokemon.weaknesses &&
-                pokemon.weaknesses.map((item, i) => {
-                  // const comma = i < pokemon.weaknesses.length - 1 ? ", " : "";
-                  // const text = item + comma;
-                  return <span key={item}>{item}</span>;
-                })}
-            </h5>
-          </div>
-
-          {/*  */}
-          <div className="font-extralight">Evolutions</div>
-          <div className="col-span-4">
-            <h5 className="font-light">
-              {pokemon.evolutions &&
-                pokemon.evolutions.map((item) => {
-                  const params = new URLSearchParams({ name: item.name });
-                  return (
-                    <Link
-                      key={item.id}
-                      className="pr-2 underline"
-                      to={{
-                        search: params.toString(),
-                      }}
-                    >
-                      {item.name}
-                    </Link>
-                  );
-                })}
-            </h5>
-          </div>
-          {/*  */}
-          <div className="font-extralight">Evolution Requirements</div>
-          <div className="col-span-4">
-            {pokemon.evolutionRequirements && (
-              <>
-                <h5 className="font-light">
-                  {pokemon.evolutionRequirements.name}{" "}
-                  {pokemon.evolutionRequirements.amount} ea
-                </h5>
-              </>
-            )}
-          </div>
-
           {/*  */}
         </div>
       </div>
