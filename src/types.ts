@@ -17,21 +17,21 @@ export interface PokemonEvolutionRequirementInterface {
 }
 export interface PokemonInterface {
   id: string;
-  number: string;
+  number?: string;
   name: string;
-  weight: PokemonDimensionInterface;
-  height: PokemonDimensionInterface;
-  classification: string;
-  types: string[];
-  resistant: string[];
-  attacks: PokemonAttackInterface;
-  weaknesses: string[];
-  fleeRate: number;
-  maxCP: number;
-  evolutions: PokemonInterface[];
-  evolutionRequirements: PokemonEvolutionRequirementInterface;
-  maxHP: number;
-  image: string;
+  weight?: PokemonDimensionInterface;
+  height?: PokemonDimensionInterface;
+  classification?: string;
+  types?: string[];
+  resistant?: string[];
+  attacks?: PokemonAttackInterface;
+  weaknesses?: string[];
+  fleeRate?: number;
+  maxCP?: number;
+  evolutions?: PokemonInterface[];
+  evolutionRequirements?: PokemonEvolutionRequirementInterface;
+  maxHP?: number;
+  image?: string;
 }
 export interface PokemonDataInterface {
   pokemon: PokemonInterface;

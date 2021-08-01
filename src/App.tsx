@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
-} from "@apollo/client";
+import { ApolloProvider, useQuery, gql } from "@apollo/client";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { client } from "./api/graphql";
 import Search from "./pages/Search";
-import Detail from "./pages/Detail";
 
 import "./App.css";
 
@@ -19,9 +12,6 @@ function App() {
       <div className="App sm:container mx-auto">
         <Router>
           <Switch>
-            <Route path="/detail">
-              <Detail />
-            </Route>
             <Route path="/">
               <Search />
             </Route>
