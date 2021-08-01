@@ -76,7 +76,7 @@ function Search() {
   if (loading) return <div className="p-5 text-gray-400">Loading</div>;
   if (error) return <div className="p-5 text-red-400">{error.message}</div>;
   return (
-    <div className="pt-5">
+    <div className="pt-5 mx-5 sm:mx-0">
       <form
         method="GET"
         onSubmit={(e) => {

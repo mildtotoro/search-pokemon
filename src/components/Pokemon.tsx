@@ -20,14 +20,14 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           </div>
         </div>
       </div>
-      <div className=" p-5 sm:pl-32 text-left border-solid border rounded-sm border-gray-300">
+      <div className="mt-3 sm:mt-0 p-5 sm:pl-32 text-left border-solid border rounded-sm border-gray-300">
         <h2 className="text-yellow-600 uppercase font-bold inline">
           {pokemon.name}
         </h2>
 
         <h4
           data-testid="pokemon-types"
-          className=" text-gray-500 font-light text-xs inline pl-3"
+          className="text-gray-500 font-light text-xs inline pl-3"
         >
           <ul className="comma-list">
             (
@@ -42,44 +42,54 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
             )
           </ul>
         </h4>
-        <div className="mt-5 grid grid-cols-5 gap-x-1 gap-y-2 text-xs text-gray-600">
-          <div className="font-extralight">HP</div>
+        <div className="mt-5 grid grid-cols-7 sm:grid-cols-5 gap-x-1 gap-y-2 text-xs text-gray-600">
+          <div className="col-span-3 sm:col-span-1 font-extralight">HP</div>
           <div className="col-span-4">
             <h5 className="font-light">{pokemon.maxHP}</h5>
           </div>
           {/*  */}
-          <div className="font-extralight">CP</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">CP</div>
           <div className="col-span-4">
             <h5 className="font-light">{pokemon.maxCP}</h5>
           </div>
           {/*  */}
-          <div className="font-extralight">Flee Rate</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Flee Rate
+          </div>
           <div className="col-span-4">
             <h5 className="font-light">{pokemon.fleeRate}</h5>
           </div>
 
           {/*  */}
-          <div className="sm:hidden block font-extralight">Weight</div>
+          <div className="sm:hidden block col-span-3 sm:col-span-1 font-extralight">
+            Weight
+          </div>
           <div className="sm:hidden block col-span-4">
             <h5 className="font-light">
               {pokemon.weight?.minimum} - {pokemon.weight?.maximum}
             </h5>
           </div>
           {/*  */}
-          <div className="sm:hidden sblock font-extralight">Height</div>
+          <div className="sm:hidden sblock col-span-3 sm:col-span-1 font-extralight">
+            Height
+          </div>
           <div className="sm:hidden block col-span-4">
             <h5 className="font-light">
               {pokemon.height?.minimum} - {pokemon.height?.maximum}
             </h5>
           </div>
           {/*  */}
-          <div className="font-extralight">Classification</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Classification
+          </div>
           <div className="col-span-4">
             <h5 className="font-light">{pokemon.classification}</h5>
           </div>
 
           {/*  */}
-          <div className="font-extralight">Resistant</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Resistant
+          </div>
           <div className="col-span-4">
             <h5 className="font-light">
               <ul className="comma-list">
@@ -96,7 +106,9 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           </div>
           {/*  */}
 
-          <div className="font-extralight">Weaknesses</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Weaknesses
+          </div>
           <div className="col-span-4">
             <h5 className="font-light">
               <ul className="comma-list">
@@ -113,7 +125,9 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           </div>
 
           {/*  */}
-          <div className="font-extralight">Evolutions</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Evolutions
+          </div>
           <div className="col-span-4">
             <h5 className="font-light">
               <ul className="comma-list">
@@ -137,7 +151,9 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
             </h5>
           </div>
           {/*  */}
-          <div className="font-extralight">Evolution Requirements</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Evolution Requirements
+          </div>
           <div className="col-span-4">
             {pokemon.evolutionRequirements && (
               <>
@@ -150,7 +166,9 @@ const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }) => {
           </div>
 
           {/*  */}
-          <div className="font-extralight">Attacks</div>
+          <div className="col-span-3 sm:col-span-1 font-extralight">
+            Attacks
+          </div>
           <div className="col-span-4">
             <div className="sm:flex">
               <h5 className="font-light flex-1">
