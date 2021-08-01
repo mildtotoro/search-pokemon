@@ -16,7 +16,7 @@ import "./App.css";
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="App">
+      <div className="App sm:container mx-auto">
         <Router>
           <Switch>
             <Route path="/detail">
